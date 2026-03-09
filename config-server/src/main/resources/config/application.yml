@@ -1,0 +1,1 @@
+# Global/shared configuration for every microservice that connects to the config-server (not for config-server itself)
