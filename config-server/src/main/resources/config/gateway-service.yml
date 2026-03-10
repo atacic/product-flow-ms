@@ -1,0 +1,25 @@
+server:
+  port: 9999
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+              low-case-service-id: true
+#          routes:
+#            - id: catalog-service
+#              uri: lb://catalog-service
+#              predicates:
+#                - Path=/api/catalog/**
+#            - id: inventory-service
+#              uri: lb://inventory-service
+#              predicates:
+#                - Path=/api/inventory/**
+#            - id: product-service
+#              uri: lb://product-service
+#              predicates:
+#                - Path=/api/product/**
