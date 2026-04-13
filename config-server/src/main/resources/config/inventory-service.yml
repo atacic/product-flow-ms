@@ -1,2 +1,27 @@
 server:
   port: 8082
+
+resilience4j:
+  retry:
+    retryAspectOrder: 2
+    instances:
+      inventory-retry:
+        maxAttempts: 10
+        waitDuration: 4s
+#        retryExceptions:
+#          - feign.FeignException
+#          - java.io.IOException
+  circuitbreaker:
+    circuitBreakerAspectOrder: 1
+    instances:
+      inventory-service-cb:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 6
+        minimumNumberOfCalls: 2
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+#        record-exceptions:
+#          - feign.RetryableException
+#          - feign.FeignException$ServiceUnavailable
+#          - java.io.IOException
+#          - java.util.concurrent.TimeoutException
