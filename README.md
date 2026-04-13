@@ -273,4 +273,3 @@ com.aleksa.<service_name>/
 - No Docker support is currently present. Each service must be started manually.
 - Catalog data is loaded from CSV (no database). Inventory data is randomized in memory - it resets on every restart.
 - Payment outcomes are randomized - there is no real payment logic.
-- Gateway routes for `payment-service` and `order-service` are commented out in `gateway-service.yml` and must be enabled before routing through the gateway.
