@@ -23,7 +23,7 @@ spring:
 #              uri: lb://payment-service
 #              predicates:
 #                - Path=/api/payments/**
-#            - id: order-service
-#              uri: lb://order-service
-#              predicates:
-#                - Path=/api/orders/**
+            - id: order-service
+              uri: lb://order-service
+              predicates:
+                - Path=/api/order/**
