@@ -42,7 +42,7 @@ class OrderControllerTest {
         when(service.createOrder(any(OrderRequest.class))).thenReturn(response);
 
         // When
-        var result = mockMvc.perform(post("/api/orders")
+        var result = mockMvc.perform(post("/api/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(new OrderRequest(1))));
 
@@ -63,7 +63,7 @@ class OrderControllerTest {
         when(service.createOrder(any(OrderRequest.class))).thenReturn(response);
 
         // When
-        var result = mockMvc.perform(post("/api/orders")
+        var result = mockMvc.perform(post("/api/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(new OrderRequest(1))));
 
@@ -80,7 +80,7 @@ class OrderControllerTest {
         when(service.createOrder(any(OrderRequest.class))).thenReturn(response);
 
         // When
-        var result = mockMvc.perform(post("/api/orders")
+        var result = mockMvc.perform(post("/api/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(new OrderRequest(1))));
 

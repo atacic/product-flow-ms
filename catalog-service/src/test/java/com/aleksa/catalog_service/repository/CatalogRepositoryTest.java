@@ -15,6 +15,7 @@ class CatalogRepositoryTest {
 
     @BeforeEach
     void setUp() {
+        // Given
         repository = new CatalogRepository();
     }
 

@@ -1,7 +1,7 @@
 package com.aleksa.payment_service.service;
 
-import com.aleksa.payment_service.model.PaymentRequest;
-import com.aleksa.payment_service.model.PaymentResponse;
+import com.aleksa.payment_service.dto.PaymentRequest;
+import com.aleksa.payment_service.dto.PaymentResponse;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

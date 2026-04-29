@@ -1,7 +1,7 @@
 package com.aleksa.payment_service.controller;
 
-import com.aleksa.payment_service.model.PaymentRequest;
-import com.aleksa.payment_service.model.PaymentResponse;
+import com.aleksa.payment_service.dto.PaymentRequest;
+import com.aleksa.payment_service.dto.PaymentResponse;
 import com.aleksa.payment_service.service.PaymentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +42,7 @@ class PaymentControllerTest {
         when(service.processPayment(any(PaymentRequest.class))).thenReturn(response);
 
         // When
-        var result = mockMvc.perform(post("/api/payments/process")
+        var result = mockMvc.perform(post("/api/payment/process")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)));
 
