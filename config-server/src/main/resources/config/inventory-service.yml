@@ -6,22 +6,35 @@ resilience4j:
     retryAspectOrder: 2
     instances:
       inventory-retry:
-        maxAttempts: 10
-        waitDuration: 4s
+        maxAttempts: 20
+        waitDuration: 5s
 #        retryExceptions:
 #          - feign.FeignException
 #          - java.io.IOException
-  circuitbreaker:
-    circuitBreakerAspectOrder: 1
-    instances:
-      inventory-service-cb:
-        slidingWindowType: COUNT_BASED
-        slidingWindowSize: 6
-        minimumNumberOfCalls: 2
-        failureRateThreshold: 50
-        waitDurationInOpenState: 5s
+#  circuitbreaker:
+#    circuitBreakerAspectOrder: 1
+#    instances:
+#      inventory-service-cb:
+#        slidingWindowType: COUNT_BASED
+#        slidingWindowSize: 6
+#        minimumNumberOfCalls: 2
+#        failureRateThreshold: 50
+#        waitDurationInOpenState: 5s
 #        record-exceptions:
 #          - feign.RetryableException
 #          - feign.FeignException$ServiceUnavailable
 #          - java.io.IOException
 #          - java.util.concurrent.TimeoutException
+  circuitbreaker:
+    circuitBreakerAspectOrder: 1
+    instances:
+      inventory-service-cb:
+        slidingWindowType: TIME_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        slowCallRateThreshold: 80
+        slowCallDurationThreshold: 2s
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
